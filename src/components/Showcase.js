@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react"
 import arrow from "../images/icon-arrow.svg"
 import left from "../images/icon-angle-left.svg"
 import right from "../images/icon-angle-right.svg"
@@ -31,17 +31,17 @@ export default function Showcase() {
   const [items] = useState(data)
   const [slideIndex, setSlideIndex] = useState(1)
 
-  function nextSlide(){
-    if(slideIndex !== items.length) {
+  function nextSlide() {
+    if (slideIndex !== items.length) {
       setSlideIndex(slideIndex + 1)
-    } else if(slideIndex === items.length) {
+    } else if (slideIndex === items.length) {
       setSlideIndex(1)
     }
   }
 
-  function previousSlide(){
+  function previousSlide() {
     if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1)  //??? and why index + 1 at the bottom??
+      setSlideIndex(slideIndex - 1)
     } else if (slideIndex === 1) {
       setSlideIndex(items.length)
     }
@@ -51,8 +51,14 @@ export default function Showcase() {
     <>
       <section>
         {items.map((item, index) => (
-          <article key={item.id} 
-          className={slideIndex === index + 1 ? "grid grid-cols-1 lg:grid-cols-2 lg:place-items-center" : "hidden"}>
+          <article
+            key={item.id}
+            className={
+              slideIndex === index + 1
+                ? "grid grid-cols-1 lg:grid-cols-2 lg:place-items-center"
+                : "hidden"
+            }
+          >
             <div className="relative">
               <picture>
                 <source media="(min-width: 768px)" srcSet={item.desktop} />
@@ -61,13 +67,18 @@ export default function Showcase() {
 
               <ul className="absolute -bottom-2 right-0 flex">
                 <li>
-                  <button onClick={previousSlide} className="bg-black hover:bg-neutral-700 transition-all duration-200 ">
+                  <button
+                    onClick={previousSlide}
+                    className="bg-black hover:bg-neutral-700 transition-all duration-200"
+                  >
                     <img src={left} alt="" className="p-6" />
                   </button>
                 </li>
-
                 <li>
-                  <button onClick={nextSlide} className="bg-black hover:bg-neutral-700 transition-all duration-200 ">
+                  <button
+                    onClick={nextSlide}
+                    className="bg-black hover:bg-neutral-700 transition-all duration-200"
+                  >
                     <img src={right} alt="" className="p-6" />
                   </button>
                 </li>
@@ -75,13 +86,18 @@ export default function Showcase() {
             </div>
 
             <div className="p-8 lg:p-12">
-              <h1 className="text-slate-900 text-3xl lg:text-5xl">{item.title}</h1>
+              <h1 className="text-slate-900 text-3xl lg:text-5xl">
+                {item.title}
+              </h1>
               <p className="text-slate-900 opacity-75 my-6">{item.desc}</p>
-              <button className="flex items-center gap-4 uppercase hover:opacity-75"
-              style={{
-                letterSpacing: "0.7rem",
-              }}
-              >Shop Now <img src={arrow} alt="" /></button>
+              <button
+                className="flex items-center gap-4 uppercase hover:opacity-75"
+                style={{
+                  letterSpacing: "0.7rem",
+                }}
+              >
+                Shop Now <img src={arrow} alt="" />
+              </button>
             </div>
           </article>
         ))}
