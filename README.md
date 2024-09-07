@@ -1,3 +1,5 @@
+When I type this(17 days after I deployed this project) I've learned NOT TO CHANGE THE NAME OF THE REP 'cus the live URL won't work and you must change the code(so sad). This was my first working React project(with some help)
+
 # Frontend Mentor - Room homepage
 
 ![Design preview for the Room homepage coding challenge](./design/desktop-preview.jpg)
